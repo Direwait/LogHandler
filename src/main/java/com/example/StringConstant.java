@@ -1,17 +1,18 @@
-package com.example.logs;
+package com.example;
 
-public final class StringPatterns {
-    private StringPatterns(){ }
+import java.util.regex.Pattern;
 
-    public static final String BALANCE = "balance inquiry %количество%";
-    public static final String TRANSFER = "transferred %количество% to %пользователь%";
-    public static final String WITHDREW = "withdrew %количество% ";
+public final class StringConstant {
+    public static final String PATH_OF_LOGS = "src\\main\\java\\com\\example\\logs";
+    public static final String PATH_OF_USERS_TRANSACTIONS = "src\\main\\java\\com\\example\\logs\\transactions_by_users";
+    public static final Pattern LOG_DATE = Pattern.compile("\\[(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\\]");
+    public static final Pattern RECEIVED = Pattern.compile("received (\\d+\\.\\d{2})");
+    public static final Pattern BALANCE = Pattern.compile("balance inquiry (\\d+\\.\\d{2})");
+    public static final Pattern WITHDREW = Pattern.compile("withdrew (\\d+\\.\\d{2})");
+    public static final Pattern TRANSFERRED = Pattern.compile("transferred (\\d+\\.\\d{2})");
+    public static final Pattern TRANSFERRED_FULL = Pattern.compile("\\[(.*?)\\] (\\w+) transferred (\\d+\\.\\d{2}) to (\\w+)");
 
-    //990 получено user001 от user002
-    //[2025-05-10 10:03:23] user001 recived 990.00 from user002
+    private StringConstant() {
+    }
 
-
-    //закинуть в transactions_user информацию о перевод про каждого user
-    //после сортировки по дате добавить строку о подсчете денег
-    //[2025-05-10 11:00:03] user001 final balance 1196.92
 }
