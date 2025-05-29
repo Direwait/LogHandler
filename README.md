@@ -1,1 +1,1 @@
-jhjhj
+Simple logHandler
